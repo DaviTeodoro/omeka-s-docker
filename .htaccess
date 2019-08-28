@@ -33,5 +33,14 @@ RewriteRule ^(.*)$ %{ENV:BASE}/index.php [L]
     </IfModule>
 </FilesMatch>
 
+# CORS access for some files.
+<IfModule mod_headers.c>
+    <FilesMatch "\.json$">
+        Header add Access-Control-Allow-Origin "*"
+        Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+        Header add Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    </FilesMatch>
+</IfModule>
+
 php_value post_max_size 25M
 php_value upload_max_filesize 25M
