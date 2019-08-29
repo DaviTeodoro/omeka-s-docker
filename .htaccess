@@ -42,5 +42,5 @@ RewriteRule ^(.*)$ %{ENV:BASE}/index.php [L]
     </FilesMatch>
 </IfModule>
 
-php_value post_max_size 25M
-php_value upload_max_filesize 45M
+php_value post_max_size 145M
+php_value upload_max_filesize 145M
