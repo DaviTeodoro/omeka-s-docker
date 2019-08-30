@@ -44,4 +44,4 @@ RewriteRule ^(.*)$ %{ENV:BASE}/index.php [L]
 
 php_value post_max_size 150M
 php_value upload_max_filesize 150M
-php_value memory_limit 512
+php_value memory_limit 512M
