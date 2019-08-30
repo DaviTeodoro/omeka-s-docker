@@ -29,7 +29,7 @@ services:
   omeka:
     depends_on:
       - mariadb
-    image: daviteodoro/omeka-s:1.0.17
+    image: daviteodoro/omeka-s:1.0.18
     restart: always
     networks:
       - network1
