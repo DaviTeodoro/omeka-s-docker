@@ -36,10 +36,12 @@ COPY ./imagemagick-policy.xml /etc/ImageMagick/policy.xml
 COPY ./.htaccess /var/www/html/.htaccess
 
 # Add some Omeka modules
-COPY ./omeka-s-modules-v5.tar.gz /var/www/html/
+ADD https://github.com/imaginerio/rioiconography-modules/archive/v1.0.0.zip /var/www/html/
 RUN rm -rf /var/www/html/modules/ \
-    &&  tar -xzf /var/www/html/omeka-s-modules-v5.tar.gz -C /var/www/html/ \
-    &&  rm /var/www/html/omeka-s-modules-v5.tar.gz
+    && unzip -q /var/www/html/v1.0.0.zip -d /var/www/html/ \
+    && rm /var/www/html/v1.0.0.zip \
+    && ls \
+    && mv /var/www/html/rioiconography-modules-1.0.0 /var/www/html/modules/
 
 # Add some themes
 COPY ./centerrow-v1.4.0.zip ./cozy-v1.3.1.zip ./thedaily-v1.4.0.zip /var/www/html/themes/
