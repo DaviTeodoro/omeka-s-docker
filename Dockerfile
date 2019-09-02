@@ -43,12 +43,8 @@ RUN rm -rf /var/www/html/modules/ \
     && ls \
     && mv /var/www/html/rioiconography-modules-1.0.0 /var/www/html/modules/
 
-# Add some themes
-COPY ./centerrow-v1.4.0.zip ./cozy-v1.3.1.zip ./thedaily-v1.4.0.zip /var/www/html/themes/
-RUN unzip -q /var/www/html/themes/centerrow-v1.4.0.zip -d /var/www/html/themes/ \
-    &&  unzip -q /var/www/html/themes/cozy-v1.3.1.zip -d /var/www/html/themes/ \
-    &&  unzip -q /var/www/html/themes/thedaily-v1.4.0.zip -d /var/www/html/themes/ \
-    &&  rm /var/www/html/themes/centerrow-v1.4.0.zip /var/www/html/themes/cozy-v1.3.1.zip /var/www/html/themes/thedaily-v1.4.0.zip
+# Add theme
+ADD https://github.com/imaginerio/rioiconography-theme/archive/v1.4.1.zip /var/www/html/
 
 # Create one volume for files and config
 RUN mkdir -p /var/www/html/volume/config/ && mkdir -p /var/www/html/volume/files/
